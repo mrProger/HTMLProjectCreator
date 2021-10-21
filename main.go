@@ -1,6 +1,6 @@
 package main
 
-import ("fmt")
+import "fmt"
 
 func main() {
     ClearScreen()
@@ -10,9 +10,13 @@ func main() {
     if CheckDir("'" + GetProjectPath() + "'") {
         ProjectMkDir(GetProjectPath(), GetProjectName())
         if FilesMkDir() && CreateFiles() {
-            fmt.Println("Проект успешно создан!")
+            fmt.Println("\nПроект успешно создан!")
+            fmt.Println("\nНажмите любую клавишу, чтобы продолжить...")
+            fmt.Scanln()
         } else {
             fmt.Println("Что-то пошло не так!")
+            fmt.Println("\nНажмите любую клавишу, чтобы продолжить...")
+            fmt.Scanln()
         }
     } else {
         fmt.Println("Директория не найдена!")
@@ -29,4 +33,6 @@ func main() {
             }
         }
     }
+
+    fmt.Scanln()
 }
